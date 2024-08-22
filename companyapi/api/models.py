@@ -18,7 +18,7 @@ class Company(models.Model):
     active=models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return self.name+' '+self.location
 
 class Employee(models.Model):
     name=models.CharField(max_length=100)
@@ -31,5 +31,5 @@ class Employee(models.Model):
         ('Software Developer','sd'),
         ('Project Lead','pl')
     ))
-    company=models.ForeignKey(Company,on_delete=models.CASCADE,null=True) 
+    company=models.ForeignKey(Company,on_delete=models.CASCADE) 
     
